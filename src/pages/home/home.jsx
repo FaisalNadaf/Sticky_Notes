@@ -9,7 +9,9 @@ const Home = () => {
         <AddTask />
       </div>
       <div className="flex flex-wrap items-center justify-center px-20">
-       
+        <Card />
+        <Card />
+        <Card />
       </div>
     </div>
   );
