@@ -10,7 +10,7 @@ const Card = ({ title, note, idx }) => {
     dispatch(remove(idx));
   };
   return (
-    <div className="h-60 w-60 border-2 border-black rounded-3xl p-4 mx-20 m-10 z-0 relative">
+    <div className="h-60 w-60 border-2 border-black rounded-3xl p-4 mx-4 md:mx-20 m-4 md:m-10 z-0 relative">
       <div className="flex justify-between items-center px-4 border-b-2 ">
         <div className="text-2xl font-bold h-8 overflow-y-hidden">{title}</div>
         <div>

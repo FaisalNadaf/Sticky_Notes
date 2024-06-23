@@ -6,7 +6,6 @@ const dataSlice = createSlice({
   initialState: cardData,
   reducers: {
     add: (state, action) => {
-      console.log(action.payload);
       state.unshift(action.payload);
     },
     remove: (state, action) => {
@@ -15,8 +14,11 @@ const dataSlice = createSlice({
         state.splice(index, 1); // Remove the item at the specified index
       }
     },
+    clearall: (state) => {
+      return (state = []);
+    },
   },
 });
 
-export const { add, remove } = dataSlice.actions;
+export const { add, remove, clearall } = dataSlice.actions;
 export default dataSlice.reducer;
