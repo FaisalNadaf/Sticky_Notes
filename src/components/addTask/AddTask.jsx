@@ -11,6 +11,15 @@ const AddTask = () => {
     dispatch(add(a));
   };
 
+  const handleAddClick = () => {
+    if (title.trim() && note.trim()) {
+      additem({ title, note });
+      setHide(false);
+    } else {
+      alert("Both title and note are required!");
+    }
+  };
+
   return (
     <>
       <div className="w-[95%] flex justify-center md:justify-between items-center ">
@@ -21,7 +30,7 @@ const AddTask = () => {
           <div className="flex items-center font-semibold text-xl">
             <div className="p-1 ">Add Task</div>
             <i
-              class="fa-solid fa-circle-plus p-1 hover:text-[green]"
+              className="fa-solid fa-circle-plus p-1 hover:text-[green]"
               onClick={() => setHide(true)}
             ></i>
           </div>
@@ -48,7 +57,7 @@ const AddTask = () => {
                 onClick={() => setHide(false)}
                 className="absolute right-1 top-1 md:right-5 md:top-5 h-8 w-8"
               >
-                <i className="fa-solid fa-square-xmark text-2xl "></i>
+                <button className="fa-solid fa-square-xmark text-2xl "></button>
               </button>
               <img
                 src="https://avatar.iran.liara.run/public"
@@ -58,11 +67,13 @@ const AddTask = () => {
               <div className="md:h-3/5 w-[80%] md:w-3/5">
                 title
                 <input
+                  required
                   className="w-[100%]  border border-black rounded p-2 mb-1 text-lg"
                   onChange={(e) => settitle(e.target.value)}
                 />
                 note
                 <textarea
+                  required
                   className="w-[100%] h-[90%] border border-black rounded p-4 text-lg"
                   onChange={(e) => setNote(e.target.value)}
                 />
@@ -70,7 +81,12 @@ const AddTask = () => {
               <button
                 className="border absolute right-1 bottom-1 md:right-12 md:bottom-5 border-gray-300 px-6 py-2 rounded-lg hover:bg-[#f7d800] bg-[#ffee7e]"
                 onClick={() => {
-                  additem({ title, note });
+                  if (title.length > 0 && note.length > 0) {
+                    additem({ title, note });
+                    settitle("");
+                    setNote("");
+                  }
+                  setHide(false);
                 }}
               >
                 Add

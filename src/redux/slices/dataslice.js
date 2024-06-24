@@ -14,11 +14,17 @@ const dataSlice = createSlice({
         state.splice(index, 1); // Remove the item at the specified index
       }
     },
+    toggleDone: (state, action) => {
+      const card = state.find((_, idx) => idx === action.payload);
+      if (card) {
+        card.done = !card.done;
+      }
+    },
     clearall: (state) => {
       return (state = []);
     },
   },
 });
 
-export const { add, remove, clearall } = dataSlice.actions;
+export const { add, remove, clearall, toggleDone } = dataSlice.actions;
 export default dataSlice.reducer;
