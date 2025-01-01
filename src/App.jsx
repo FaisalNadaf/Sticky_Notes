@@ -1,13 +1,17 @@
-import { Provider } from "react-redux";
+/** @format */
+
+import React from "react";
+
 import "./App.css";
+import "./index.css";
 import Home from "./pages/home/home";
 
 function App() {
-  return (
-    <>
-        <Home />
-    </>
-  );
+	return (
+		<>
+			<Home />
+		</>
+	);
 }
 
 export default App;

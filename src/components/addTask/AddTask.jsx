@@ -85,8 +85,9 @@ const AddTask = () => {
                     additem({ title, note });
                     settitle("");
                     setNote("");
-                  }
                   setHide(false);
+
+                  }
                 }}
               >
                 Add
